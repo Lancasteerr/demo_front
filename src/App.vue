@@ -5,7 +5,12 @@
 </template>
 
 <style lang="scss">
-#app {
-
-}
+  #app {
+  margin-top: 0;
+  }
+  body{
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
 </style>
