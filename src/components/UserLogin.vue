@@ -22,9 +22,12 @@ export default {
             if(successResponse.data.code === 200) {
               this.$router.replace('/about')
             }
+            else {
+              alert("账号或密码错误");
+            }
           })
           .catch(failResponse => {
-            failResponse
+            failResponse;
           })
     }
   }
