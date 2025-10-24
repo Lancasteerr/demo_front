@@ -1,11 +1,13 @@
 <script>
 import BackgroundImg from "@/components/BackgroundImg.vue";
 import HomeHeader from "@/components/HomeHeader.vue";
+import AboutDraggable from "@/components/AboutDraggable.vue";
 export default {
   name: 'MyHome',
   components: {
     BackgroundImg,
     HomeHeader,
+    AboutDraggable,
   },
 };
 </script>
@@ -14,9 +16,10 @@ export default {
   <div class="home-container">
     <!-- Header 组件 -->
     <HomeHeader></HomeHeader>
-
     <!-- 轮播背景组件 -->
     <BackgroundImg></BackgroundImg>
+    <!-- 可拖拽About组件 -->
+    <AboutDraggable></AboutDraggable>
   </div>
 </template>
 
@@ -32,6 +35,7 @@ export default {
 /* 使 header 固定在页面顶部，并确保其层级高于轮播图 */
 .header {
   position: fixed;
+  width: 100%;
   top: 0;
   left: 0;
   right: 0;
