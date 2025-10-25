@@ -2,12 +2,14 @@
 import BackgroundImg from "@/components/BackgroundImg.vue";
 import HomeHeader from "@/components/HomeHeader.vue";
 import AboutDraggable from "@/components/AboutDraggable.vue";
+import WorkExpDraggable from "@/components/WorkExpDraggable.vue";
 export default {
   name: 'MyHome',
   components: {
     BackgroundImg,
     HomeHeader,
     AboutDraggable,
+    WorkExpDraggable,
   },
 };
 </script>
@@ -20,6 +22,8 @@ export default {
     <BackgroundImg></BackgroundImg>
     <!-- 可拖拽About组件 -->
     <AboutDraggable></AboutDraggable>
+    <!--可拖拽WorkExp组件 -->
+    <WorkExpDraggable></WorkExpDraggable>
   </div>
 </template>
 

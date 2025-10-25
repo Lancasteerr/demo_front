@@ -1,0 +1,12 @@
+@font-face {
+    font-family: "Source Han Sans Bold";
+    src: url("@/assets/fonts/SourceHanSans-Bold.woff2") format("woff2");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Source Han Sans Regular";
+    src: url("@/assets/fonts/SourceHanSans-Regular.woff2") format("woff2");
+    font-weight: normal;
+    font-style: normal;
+}

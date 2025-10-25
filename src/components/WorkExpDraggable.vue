@@ -1,12 +1,12 @@
 <script>
 
 export default {
-  name:"AboutDraggable",
+  name:"WorkExpDraggable",
   data(){
     return {
       position: {
         x: 40,
-        y: 130,
+        y: 280,
       },
       dragging: false,
       offset: {
@@ -44,52 +44,56 @@ export default {
 </script>
 
 <template>
-  <div class="About-Draggable" :style="{left:position.x + 'px' , top:position.y + 'px'}" @pointerdown = "onMouseDown" v-bind="$attrs">
-    <div class="AboutMe">
-      <div style="justify-content: space-between" class="AboutMetitle">
-        <div style="display: flex;font-size: 16px;justify-content: center;">
-          <div>关于我</div>
-          <div class="AboutMeStitle">ABOUT ME</div>
+  <div class="WorkExp-Draggable" :style="{left:position.x + 'px' , top:position.y + 'px'}" @pointerdown = "onMouseDown" v-bind="$attrs">
+    <div class="WorkExp">
+      <div class="WorkExptitle">
+        <div style="display: flex;font-size: 16px;" class="WorkExpToalTitle">
+          <div>工作履历</div>
+          <div class="WorkExpStitle">CAREER</div>
         </div>
-        <img src="@/assets/AboutMeitem.png" alt="">
       </div>
-      <div class="AboutMecontext">
-        Type About Me context.
+      <div class="WorkExpcontext">
+        Type WorkExp context.
       </div>
     </div>
   </div>
 </template>
 
 <style scoped lang="scss">
-.About-Draggable{
+.WorkExp-Draggable{
   position: absolute;
   cursor:move;
-  width: 400px;
+  width: 300px;
   height: 135px;
   background-color: rgba(0,0,0,.88);
   box-shadow: 0 0 15px #000000;
 }
-.AboutMe{
+.WorkExp{
   width: 100%;
   height: 100%;
 }
-.AboutMetitle{
+.WorkExpToalTitle{
+  box-sizing: border-box;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #f3ff00;
+}
+.WorkExptitle{
   display: flex;
   box-sizing: border-box;
   width: 100%;
-  height: 50px;
+  height: 60px;
   padding: 15px;
   color: #ffffff;
   font-family: Source Han Sans Bold;
 }
-.AboutMeStitle{
+.WorkExpStitle{
   box-sizing: border-box;
   font-size: 12px;
   padding-left: 6px;
-  line-height: 30px;
+  line-height: 28px;
   font-family: Source Han Sans Regular;
 }
-.AboutMecontext{
+.WorkExpcontext{
   color: #ffffff;
   box-sizing: border-box;
   padding-left: 15px;

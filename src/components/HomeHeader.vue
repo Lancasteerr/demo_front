@@ -4,6 +4,9 @@ export default {
     goToLoginpage(){
       this.$router.push('/login')
     },
+    goToRegisterpage(){
+      this.$router.push('/register')
+    }
   }
 }
 </script>
@@ -17,7 +20,7 @@ export default {
         <div class="butten-container">
           <el-button class="Loginbutton" type="text" @click="goToLoginpage">登录</el-button>
           <div class="separator"></div>
-          <el-button class="Register" type="text">注册</el-button>
+          <el-button class="Register" type="text" @click="goToRegisterpage">注册</el-button>
         </div>
     </div>
   </el-header>
