@@ -43,7 +43,7 @@ export default {
 
 #logo img {
   height: 70px;
-  padding: 0px;
+  padding: 0;
 }
 
 .butten-container{
