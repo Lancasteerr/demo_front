@@ -1,12 +1,14 @@
 @font-face {
     font-family: "Source Han Sans Bold";
     src: url("@/assets/fonts/SourceHanSans-Bold.woff2") format("woff2");
+    src:url("@/assets/fonts/SourceHanSansSC-Bold.otf") format("opentype");
     font-weight: normal;
     font-style: normal;
 }
 @font-face {
     font-family: "Source Han Sans Regular";
     src: url("@/assets/fonts/SourceHanSans-Regular.woff2") format("woff2");
+    src: url("@/assets/fonts/SourceHanSansSC-Regular.otf") format("opentype");
     font-weight: normal;
     font-style: normal;
 }

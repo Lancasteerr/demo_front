@@ -13,6 +13,7 @@ export default {
   },
   methods: {
     login() {
+      console.log(this.$store.state)
       this.$axios
           .post('/login',{
             userName : this.loginForm.userName,
@@ -20,7 +21,12 @@ export default {
           })
           .then(successResponse => {
             if(successResponse.data.code === 200) {
-              this.$router.replace('/about')
+              //利用store的commit调用login方法更新状态，commit会传入当前状态，不需要显式传入
+              this.$store.commit('login',this.loginForm)
+              console.log(this.$store.state)
+              //来源的url
+              var path = this.$route.query.redirect
+              this.$router.replace({path: path === '/' || path === undefined ? '/' : path})
             }
             else {
               alert("账号或密码错误");

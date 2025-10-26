@@ -15,6 +15,25 @@ Vue.prototype.$axios = axios
 
 Vue.use(ElementUI);
 
+router.beforeEach((to,from,next)=>{
+    if(to.meta.requireAuth){
+        if(store.state.user.userName) {
+            //console.log(this.$store.state)
+            next()
+        }
+        else {
+            //console.log(this.$store.state)
+            next({
+                path:'login',
+                query:{redirect:to.fullPath}
+            })
+        }
+    }
+    else {
+        next()
+    }
+})
+
 new Vue({
   router,
   store,

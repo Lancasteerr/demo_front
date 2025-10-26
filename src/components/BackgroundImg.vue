@@ -17,7 +17,7 @@ export default {
 
 <template>
   <div class="page-background">
-    <el-carousel trigger="click" height=100vh interval="5000">
+    <el-carousel trigger="click" height=100vh interval="15000" arrow="hover" indicator-position="none">
       <el-carousel-item v-for="item in carouseData" :key="item">
         <div class="carousel-item" :style="{backgroundImage: 'url('+item.url+')'}"></div>
       </el-carousel-item>

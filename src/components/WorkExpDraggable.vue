@@ -63,7 +63,7 @@ export default {
 .WorkExp-Draggable{
   position: absolute;
   cursor:move;
-  width: 300px;
+  width: 400px;
   height: 135px;
   background-color: rgba(0,0,0,.88);
   box-shadow: 0 0 15px #000000;

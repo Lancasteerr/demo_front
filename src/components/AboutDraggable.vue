@@ -80,13 +80,13 @@ export default {
   height: 50px;
   padding: 15px;
   color: #ffffff;
-  font-family: Source Han Sans Bold , sans-serif;
+  font-family: "Source Han Sans Bold" , sans-serif;
 }
 .AboutMeStitle{
   box-sizing: border-box;
   font-size: 12px;
   padding-left: 6px;
-  line-height: 30px;
+  line-height: 28px;
   font-family: Source Han Sans Regular , sans-serif;
 }
 .AboutMecontext{

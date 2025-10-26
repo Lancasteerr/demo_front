@@ -3,6 +3,9 @@ import BackgroundImg from "@/components/BackgroundImg.vue";
 import HomeHeader from "@/components/HomeHeader.vue";
 import AboutDraggable from "@/components/AboutDraggable.vue";
 import WorkExpDraggable from "@/components/WorkExpDraggable.vue";
+import ContactMeDraggable from "@/components/ContactMeDraggable.vue";
+import ArticleListDraggable from "@/components/ArticleListDraggable.vue";
+
 export default {
   name: 'MyHome',
   components: {
@@ -10,6 +13,8 @@ export default {
     HomeHeader,
     AboutDraggable,
     WorkExpDraggable,
+    ContactMeDraggable,
+    ArticleListDraggable,
   },
 };
 </script>
@@ -24,6 +29,10 @@ export default {
     <AboutDraggable></AboutDraggable>
     <!--可拖拽WorkExp组件 -->
     <WorkExpDraggable></WorkExpDraggable>
+    <!--可拖拽ContactMe组件 -->
+    <ContactMeDraggable></ContactMeDraggable>
+    <!--可拖拽文章列表组件 -->
+    <ArticleListDraggable></ArticleListDraggable>
   </div>
 </template>
 
