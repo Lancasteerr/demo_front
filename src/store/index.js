@@ -1,9 +1,7 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import {createStore} from "vuex";
 
-Vue.use(Vuex)
 
-export default new Vuex.Store({
+export default createStore({
   state: {
       user: {
           //[]用于防止获取user对象失败返回的空数组

@@ -1,12 +1,15 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
+import {createRouter, createWebHistory} from 'vue-router'
 import MyHome from '@/components/MyHome.vue'
 import MyAbout from "@/components/MyAbout.vue";
 import UserLogin from "@/components/UserLogin.vue";
 import UserRegister from "@/components/UserRegister.vue";
 import PageNotFound from "@/components/PageNotFound.vue";
+import ManagePage from "@/components/manage/ManagePage.vue";
+import {createApp} from "vue";
+import App from "@/App.vue";
 
-Vue.use(VueRouter)
+//Vue.use(VueRouter)
+//createApp(App).use(router).mount('#app')
 
 const routes = [
     {   path :'/',
@@ -23,6 +26,14 @@ const routes = [
         }
     },
     {
+      path:'/manage',
+      name: 'manage',
+      component: ManagePage,
+      meta:{
+          //requireAuth:true,
+      }
+    },
+    {
         path: '/login',
         name: 'UserLogin',
         component: UserLogin
@@ -32,16 +43,24 @@ const routes = [
         name: 'UserRegister',
         component: UserRegister
     },
+    // {
+    //   path: '/*',
+    //   name: 'PageNotFound',
+    //   component: PageNotFound
+    // },
     {
-      path: '/*',
-      name: 'PageNotFound',
-      component: PageNotFound
-    }
+        path: '/:pathMatch(.*)*',
+        name: 'PageNotFound',
+        component: PageNotFound },
 ]
 
-const router = new VueRouter({
-    mode:"history",
+const router = createRouter({
+    history: createWebHistory(),
     routes
 })
+
+const app = createApp(App)
+app.use(router)
+app.mount('#app')
 
 export default router

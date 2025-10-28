@@ -4,8 +4,8 @@ export default {
   data(){
     return {
       position: {
-        x: 1250,
-        y: 190,
+        x: 0.74 * window.innerWidth,
+        y: 0.18 * window.innerHeight,
       },
       dragging: false,
       offset: {

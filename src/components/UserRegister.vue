@@ -1,37 +1,26 @@
-<script>
+<script setup>
+ import {reactive} from "vue";
+ import axios from "axios";
+ import router from "@/router";
 
-export default {
-  name : 'UserRegister',
-  data() {
-    return {
-      registerForm : {
-        userName :'',
-        password : ''
-      },
-      responseResult : []
-    }
-  },
-  methods: {
-    register() {
-      this.$axios
-          .post('/register',{
-            userName : this.registerForm.userName,
-            password : this.registerForm.password
-          })
-          .then(successResponse => {
-            if(successResponse.data.code === 200) {
-              alert("Register Success.")
-              this.$router.replace('/login')
-            }
-            else {
-              alert("Username is already taken.");
-            }
-          })
-          .catch(failResponse => {
-            failResponse;
-          })
-    }
-  }
+ const registerForm = reactive({
+   userName:'',
+   password:'',
+ });
+    const register = async () =>{
+      try {
+        const respond = await axios.post('/register',{
+          userName: registerForm.userName,
+          password: registerForm.password,
+        });
+        if(respond.data.code===200) {
+          router.replace('login')
+        } else {
+          alert("账号名重复")
+        }
+      }catch (error){
+          console.log("Register Fail: ",error);
+      }
 }
 
 </script>

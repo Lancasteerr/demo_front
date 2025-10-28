@@ -1,41 +1,51 @@
-import Vue from 'vue'
+import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import axios from "axios";
-import ElementUI from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css';
+import axios from 'axios'
+import ElementPlus from 'element-plus'
+import 'element-plus/dist/index.css'
+import mavonEditor from "mavon-editor";
+import 'mavon-editor/dist/css/index.css'
+
 import './assets/fonts/font.css'
 
+// 创建应用实例
+const app = createApp(App)
+
+// 注册 mavonEditor
+app.use(mavonEditor)
+
+// 配置 axios
 axios.defaults.baseURL = 'http://localhost:8443/api'
 
-Vue.config.productionTip = false
-// 全局注册，之后可在其他组件中通过 this.$axios 发送数据
-Vue.prototype.$axios = axios
+// 全局注册 axios
+app.config.globalProperties.$axios = axios
 
-Vue.use(ElementUI);
+// 使用 ElementPlus
+app.use(ElementPlus)
 
-router.beforeEach((to,from,next)=>{
-    if(to.meta.requireAuth){
-        if(store.state.user.userName) {
-            //console.log(this.$store.state)
+// 使用 Vuex 状态管理
+app.use(store)
+
+// 使用 Vue Router
+app.use(router)  // 在此时使用 router
+
+// 路由守卫
+router.beforeEach((to, from, next) => {
+    if (to.meta.requireAuth) {
+        if (store.state.user.userName) {
             next()
-        }
-        else {
-            //console.log(this.$store.state)
+        } else {
             next({
-                path:'login',
-                query:{redirect:to.fullPath}
+                path: 'login',
+                query: { redirect: to.fullPath }
             })
         }
-    }
-    else {
+    } else {
         next()
     }
 })
 
-new Vue({
-  router,
-  store,
-  render: h => h(App)
-}).$mount('#app')
+// 挂载应用
+app.mount('#app')

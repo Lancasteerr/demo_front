@@ -1,13 +1,13 @@
-<script>
-export default {
-  methods:{
-    goToLoginpage(){
-      this.$router.push('/login')
-    },
-    goToRegisterpage(){
-      this.$router.push('/register')
-    }
-  }
+<script setup>
+
+import router from "@/router";
+
+const goToLoginpage = () => {
+  router.push('/login')
+}
+
+const goToRegisterpage = () => {
+  router.push('/register')
 }
 </script>
 

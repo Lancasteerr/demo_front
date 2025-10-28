@@ -1,44 +1,44 @@
-<script>
+<script setup>
+import { reactive } from 'vue';
+import { useRouter } from 'vue-router';
+import { useStore } from 'vuex';
+import axios from 'axios';
 
-export default {
-  name : 'UserLogin',
-  data() {
-    return {
-      loginForm : {
-        userName :'',
-        password : ''
-      },
-      responseResult : []
+// 使用组合式API的方式获取router和store
+const router = useRouter();
+const store = useStore();
+
+// 定义响应式的loginForm
+const loginForm = reactive({
+  userName: '',
+  password: ''
+});
+
+// login函数
+const login = async () => {
+  try {
+    console.log(store.state);
+
+    const response = await axios.post('/login', {
+      userName: loginForm.userName,
+      password: loginForm.password
+    });
+
+    if (response.data.code === 200) {
+      // 利用store的commit调用login方法更新状态
+      store.commit('login', loginForm);
+      console.log(store.state);
+
+      // 获取来源的URL，默认跳转到 /manage 页面
+      const path = router.currentRoute.value.query.redirect;
+      router.replace({ path: path === '/' || path === undefined ? '/manage' : path });
+    } else {
+      alert('账号或密码错误');
     }
-  },
-  methods: {
-    login() {
-      console.log(this.$store.state)
-      this.$axios
-          .post('/login',{
-            userName : this.loginForm.userName,
-            password : this.loginForm.password
-          })
-          .then(successResponse => {
-            if(successResponse.data.code === 200) {
-              //利用store的commit调用login方法更新状态，commit会传入当前状态，不需要显式传入
-              this.$store.commit('login',this.loginForm)
-              console.log(this.$store.state)
-              //来源的url
-              var path = this.$route.query.redirect
-              this.$router.replace({path: path === '/' || path === undefined ? '/' : path})
-            }
-            else {
-              alert("账号或密码错误");
-            }
-          })
-          .catch(failResponse => {
-            failResponse;
-          })
-    }
+  } catch (error) {
+    console.error('Login failed:', error);
   }
-}
-
+};
 </script>
 
 <template>
