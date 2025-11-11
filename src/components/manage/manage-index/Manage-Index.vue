@@ -5,7 +5,7 @@ import ArticleEditor from "@/components/manage/manage-index/Article-Editor.vue";
 <template>
   <div class="index-container">
     <!-- MarkDown编辑器 -->
-    <ArticleEditor style="width: 99%;height: 99%;"></ArticleEditor>
+    <ArticleEditor></ArticleEditor>
   </div>
 </template>
 
