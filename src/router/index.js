@@ -7,6 +7,7 @@ import PageNotFound from "@/components/PageNotFound.vue";
 import ManagePage from "@/components/manage/ManagePage.vue";
 import {createApp} from "vue";
 import App from "@/App.vue";
+import ArticleListPage from "@/components/articlelist-index/ArticleListPage.vue";
 
 //Vue.use(VueRouter)
 //createApp(App).use(router).mount('#app')
@@ -42,6 +43,11 @@ const routes = [
         path: '/register',
         name: 'UserRegister',
         component: UserRegister
+    },
+    {
+        path:'/articlelist',
+        name: 'ArticleList',
+        component: ArticleListPage
     },
     // {
     //   path: '/*',
