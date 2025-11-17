@@ -2,7 +2,7 @@
   <div class="article-list">
     <div class="article-item" v-for="item in articles" :key="item.id">
 
-      <div class="title">{{ item.articleTitle }}</div>
+      <div class="title" @click = "jumpto(item.id)">{{ item.articleTitle }}</div>
 
       <div class="abstract">{{ item.articleAbstract }}</div>
 
@@ -28,7 +28,9 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import axios from "axios";
+import {useRouter} from "vue-router";
 
+const router = useRouter();
 const articles = ref([]);
 const total = ref(0);
 const page = ref(1);
@@ -47,6 +49,10 @@ const loadArticles = async () => {
   total.value = data.totalElements;
   page.value = data.number + 1;
 };
+
+const jumpto = (id) =>{
+  router.push({ path: '/article', query: { id: id } })
+}
 
 const handlePageChange = (newPage) => {
   page.value = newPage;

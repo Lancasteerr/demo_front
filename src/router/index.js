@@ -8,6 +8,7 @@ import ManagePage from "@/components/manage/ManagePage.vue";
 import {createApp} from "vue";
 import App from "@/App.vue";
 import ArticleListPage from "@/components/articlelist-index/ArticleListPage.vue";
+import ArticleDetail from "@/components/ArticleDetails/ArticleDetail.vue";
 
 //Vue.use(VueRouter)
 //createApp(App).use(router).mount('#app')
@@ -48,6 +49,16 @@ const routes = [
         path:'/articlelist',
         name: 'ArticleList',
         component: ArticleListPage
+    },
+    {
+      path:'/article',
+      name: 'ArticleDetailQuery',
+      component: ArticleDetail
+    },
+    {
+        path:'/article/:id',
+        name: 'ArticleDetailRestful',
+        component: ArticleDetail
     },
     // {
     //   path: '/*',
