@@ -9,6 +9,7 @@ import {createApp} from "vue";
 import App from "@/App.vue";
 import ArticleListPage from "@/components/articlelist-index/ArticleListPage.vue";
 import ArticleDetail from "@/components/ArticleDetails/ArticleDetail.vue";
+import ArticleEditPage from "@/components/manage/manage-index/Article-edit/ArticleEditPage.vue";
 
 //Vue.use(VueRouter)
 //createApp(App).use(router).mount('#app')
@@ -60,15 +61,21 @@ const routes = [
         name: 'ArticleDetailRestful',
         component: ArticleDetail
     },
-    // {
-    //   path: '/*',
-    //   name: 'PageNotFound',
-    //   component: PageNotFound
-    // },
+    {
+      path:'/manage/edit',
+      name:'editArticleQuery',
+      component: ArticleEditPage
+    },
+    {
+        path:'/manage/edit/:id',
+        name:'editArticleRestful',
+        component: ArticleEditPage
+    },
     {
         path: '/:pathMatch(.*)*',
         name: 'PageNotFound',
-        component: PageNotFound },
+        component: PageNotFound
+    },
 ]
 
 const router = createRouter({

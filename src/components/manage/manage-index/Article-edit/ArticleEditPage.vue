@@ -1,14 +1,18 @@
 <script setup>
-
-import ArticleCard from "@/components/ArticleDetails/ArticleCard.vue";
 import CommonFooterLayout from "@/components/Footer/CommonFooterLayout.vue";
+import ArticleEditHeader from "@/components/manage/manage-index/Article-edit/ArticleEditHeader.vue";
+import ManageIndex from "@/components/manage/manage-index/Manage-Index.vue";
 </script>
 
 <template>
-  <div class="ArticleDetail-Container">
+  <div class="ManagerEdit-Container">
+    <!-- 管理页面背景 -->
     <div class ="ArticleBackgroundImg"></div>
     <CommonFooterLayout>
-      <ArticleCard></ArticleCard>
+      <!-- 管理页面Header -->
+      <ArticleEditHeader></ArticleEditHeader>
+      <!-- 主管理页面 状态切换-->
+      <ManageIndex></ManageIndex>
     </CommonFooterLayout>
   </div>
 </template>

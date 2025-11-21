@@ -13,10 +13,25 @@ import { ElMessage, ElMessageBox } from 'element-plus'
     articleDate: ''
   })
 
+  //加载文章或新建文章
+  const loadarticle = async (id) =>{
+
+    if(!id) return;
+
+    const res = await axios.get("/article",{
+      params:{id}
+    })
+    article.articleTitle = res.data.articleTitle;
+    article.articleAbstract = res.data.articleAbstract;
+    article.articleContentMd = res.data.articleContentMd;
+  }
+
   onMounted(() =>{
     const route = useRoute();
-    if(route.params.article){
-      article.value = route.params.article;
+    if(route.query.id){
+      loadarticle(route.query.id)
+    }else if(route.params.id){
+      loadarticle(route.params.id)
     }
   })
 
@@ -51,7 +66,7 @@ import { ElMessage, ElMessageBox } from 'element-plus'
   <div class="editor">
     <el-input v-model="article.articleTitle" style="width: 100%;height: 4%; padding-bottom: 1px;box-sizing: border-box;" placeholder="请输入文章标题" />
     <el-input v-model="article.articleAbstract" style="width: 100%;height: 4%;padding-bottom: 3px;box-sizing: border-box;" placeholder="请输入文章概要" />
-    <mavon-editor v-model="article.articleContentMd" boxShadow="true" @save="saveArticles" style="height: 91%;"/>
+    <mavon-editor v-model="article.articleContentMd" boxShadow="true" @save="saveArticles" style="height: 90%;"/>
   </div>
 </template>
 

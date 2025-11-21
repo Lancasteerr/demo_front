@@ -13,10 +13,10 @@ export default {
         y: 0,
       },
       ArticleCoverData:[
-        {url:require("@/assets/ArticleCoverImg/1.png"), link:"http://localhost:8080/asd"},
-        {url:require("@/assets/ArticleCoverImg/2.jpg"), link:"http://localhost:8080/asd"},
-        {url:require("@/assets/ArticleCoverImg/3.jpg"), link:"http://localhost:8080/asd"},
-        {url:require("@/assets/ArticleCoverImg/4.jpg"), link:"http://localhost:8080/aboasdut"},
+        {url:require("@/assets/ArticleCoverImg/1.png"), link:"http://localhost:8080/articlelist"},
+        {url:require("@/assets/ArticleCoverImg/2.jpg"), link:"http://localhost:8080/articlelist"},
+        {url:require("@/assets/ArticleCoverImg/3.jpg"), link:"http://localhost:8080/articlelist"},
+        {url:require("@/assets/ArticleCoverImg/4.jpg"), link:"http://localhost:8080/articlelist"},
       ]
     }
   },

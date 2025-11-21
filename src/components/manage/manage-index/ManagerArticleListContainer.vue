@@ -1,12 +1,12 @@
 <script setup>
 
-import ArticleList from "@/components/articlelist-index/ArticleList.vue";
+import ManageArticleList from "@/components/manage/manage-index/ManageArticleList.vue";
 </script>
 
 <template>
- <div class="ArticleList-container">
-  <ArticleList></ArticleList>
- </div>
+  <div class="ArticleList-container">
+    <ManageArticleList></ManageArticleList>
+  </div>
 </template>
 
 <style scoped lang="scss">

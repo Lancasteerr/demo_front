@@ -8,8 +8,29 @@
 
       <div class="date">{{ item.articleDate.slice(0, 10) }}</div>
 
-      <div class="divider"></div>
+    <!-- 操作按钮区域 -->
+    <div class="action-buttons">
+      <el-button
+          size="small"
+          type="primary"
+          plain
+          @click="editArticle(item.id)"
+      >
+        修改
+      </el-button>
+
+      <el-button
+          size="small"
+          type="danger"
+          plain
+          @click="delArticle(item.id)"
+      >
+        删除
+      </el-button>
     </div>
+
+    <div class="divider"></div>
+  </div>
 
     <!-- 分页 -->
     <div class="pagination-box">
@@ -40,7 +61,7 @@ const loadArticles = async () => {
   const res = await axios.get("get_article_list", {
     params: {
       page: page.value,   // 后端会自动 -1
-      size: pageSize.value
+      size: pageSize.value,
     }
   });
 
@@ -60,6 +81,21 @@ const handlePageChange = (newPage) => {
 };
 
 onMounted(loadArticles);
+
+const delArticle = async (id) => {
+  try {
+    const response = await axios.delete(`admin/content/delarticle/${id}`)
+    if(response.data.code === 200){
+      window.location.reload();
+    }
+  }catch (error){
+    console.error('Articledel Failed:',error);
+  }
+}
+
+const editArticle = (id) =>{
+  window.open(`/manage/edit/${id}`,'_blank')
+}
 </script>
 
 <style scoped>
@@ -100,6 +136,6 @@ onMounted(loadArticles);
 .divider {
   width: 100%;
   height: 1px;
-  background-color: #5a5a5a42;
+  background-color: #e5e5e5;
 }
 </style>
