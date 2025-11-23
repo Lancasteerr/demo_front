@@ -13,9 +13,13 @@ export default createStore({
   },
   mutations: {//用于同步修改state中的状态
     login(state,user){
-        state.user = user
-        window.localStorage.setItem('user',JSON.stringify(user))
-    }
+        state.user = user;
+        window.localStorage.setItem('user',JSON.stringify(user));
+    },
+    logout(state){
+        state.user={};
+        localStorage.removeItem('user');
+      }
   },
   actions: {
   },

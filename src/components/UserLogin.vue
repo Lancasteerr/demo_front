@@ -19,7 +19,7 @@ const login = async () => {
   try {
     console.log(store.state);
 
-    const response = await axios.post('/login', {
+    const response = await axios.post('/public/login', {
       userName: loginForm.userName,
       password: loginForm.password
     });
@@ -27,6 +27,7 @@ const login = async () => {
     if (response.data.code === 200) {
       // 利用store的commit调用login方法更新状态
       store.commit('login', loginForm);
+      localStorage.setItem("token",response.data.token)
       console.log(store.state);
 
       // 获取来源的URL，默认跳转到 /manage 页面

@@ -17,7 +17,7 @@ const scrollProgress = ref(0);
 const loadArticle = async () => {
   const id = route.params.id || route.query.id;
 
-  const res = await axios.get("/article", {
+  const res = await axios.get("/public/article", {
     params: { id }
   });
 

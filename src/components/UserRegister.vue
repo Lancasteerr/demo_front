@@ -9,7 +9,7 @@
  });
     const register = async () =>{
       try {
-        const respond = await axios.post('/register',{
+        const respond = await axios.post('/public/register',{
           userName: registerForm.userName,
           password: registerForm.password,
         });

@@ -47,5 +47,31 @@ router.beforeEach((to, from, next) => {
     }
 })
 
+//创建axios请求拦截器 为所有请求带上JWT
+axios.interceptors.request.use((config) =>{
+    //获取本地token
+    const token = localStorage.getItem("token");
+
+    if(token){
+        config.headers["Authorization"] = `Bearer ${token}`;
+    }
+    //返回修改后配置
+    return config;
+})
+
+//创建响应拦截器 处理401（token过期或未登录）
+axios.interceptors.response.use(
+    (response)=> response,
+    (error)=>{
+        if(error.response && error.response.status === 401) {
+            router.push('/login');
+        }else if(error.response && error.response.status === 403) {
+            localStorage.removeItem("token");
+            store.commit('logout');
+            router.push('/login');
+        }
+        return Promise.reject(error);
+    })
+
 // 挂载应用
 app.mount('#app')

@@ -18,9 +18,10 @@ import { ElMessage, ElMessageBox } from 'element-plus'
 
     if(!id) return;
 
-    const res = await axios.get("/article",{
+    const res = await axios.get("/public/article",{
       params:{id}
     })
+    article.id = res.data.id;
     article.articleTitle = res.data.articleTitle;
     article.articleAbstract = res.data.articleAbstract;
     article.articleContentMd = res.data.articleContentMd;

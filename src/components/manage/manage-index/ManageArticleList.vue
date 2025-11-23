@@ -58,7 +58,7 @@ const page = ref(1);
 const pageSize = ref(10);
 
 const loadArticles = async () => {
-  const res = await axios.get("get_article_list", {
+  const res = await axios.get("/public/get_article_list", {
     params: {
       page: page.value,   // 后端会自动 -1
       size: pageSize.value,

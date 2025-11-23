@@ -11,9 +11,6 @@ import ArticleListPage from "@/components/articlelist-index/ArticleListPage.vue"
 import ArticleDetail from "@/components/ArticleDetails/ArticleDetail.vue";
 import ArticleEditPage from "@/components/manage/manage-index/Article-edit/ArticleEditPage.vue";
 
-//Vue.use(VueRouter)
-//createApp(App).use(router).mount('#app')
-
 const routes = [
     {   path :'/',
         name : 'MyHome',
@@ -33,7 +30,7 @@ const routes = [
       name: 'manage',
       component: ManagePage,
       meta:{
-          //requireAuth:true,
+          requireAuth:true,
       }
     },
     {
@@ -64,12 +61,18 @@ const routes = [
     {
       path:'/manage/edit',
       name:'editArticleQuery',
-      component: ArticleEditPage
+      component: ArticleEditPage,
+      meta:{
+          requireAuth:true,
+      }
     },
     {
         path:'/manage/edit/:id',
         name:'editArticleRestful',
-        component: ArticleEditPage
+        component: ArticleEditPage,
+        meta:{
+            requireAuth:true,
+        }
     },
     {
         path: '/:pathMatch(.*)*',
