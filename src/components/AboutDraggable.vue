@@ -1,5 +1,7 @@
 <script>
 
+import {globalZIndex} from "@/utils/DraggableZIndex";
+
 export default {
   name:"AboutDraggable",
   data(){
@@ -12,7 +14,8 @@ export default {
       offset: {
         x: 0,
         y: 0,
-      }
+      },
+      zIndex: 1
     }
   },
   methods:{
@@ -22,13 +25,24 @@ export default {
       this.offset.x = event.clientX - this.position.x;//给相对位置初值
       this.offset.y = event.clientY - this.position.y;
       //event.target.setPointerCapture(event.pointerId);//追踪指针直到离开窗口
+      this.zIndex = ++globalZIndex.value;
       document.addEventListener("pointermove",this.onMouseMove);
       document.addEventListener("pointerup",this.onMouseUp);
     },
     onMouseMove(event){
       if(this.dragging){
-        this.position.x = event.clientX - this.offset.x;//更新组件位置
-        this.position.y = event.clientY - this.offset.y;
+        let newX = event.clientX - this.offset.x;
+        let newY = event.clientY - this.offset.y;
+
+        const el = this.$el;//当前组件DOM
+        const maxX = window.innerWidth - el.offsetWidth;
+        const maxY = window.innerHeight - el.offsetHeight;
+
+        newX = Math.max(0,Math.min(newX,maxX));
+        newY = Math.max(80,Math.min(newY,maxY));
+
+        this.position.x = newX;//更新组件位置
+        this.position.y = newY;
       }
     },
     onMouseUp(){
@@ -44,7 +58,7 @@ export default {
 </script>
 
 <template>
-  <div class="About-Draggable" :style="{left:position.x + 'px' , top:position.y + 'px'}" @pointerdown = "onMouseDown" v-bind="$attrs">
+  <div class="About-Draggable" :style="{left:position.x + 'px' , top:position.y + 'px',zIndex: zIndex}" @pointerdown = "onMouseDown" v-bind="$attrs">
     <div class="AboutMe">
       <div style="justify-content: space-between" class="AboutMetitle">
         <div style="display: flex;font-size: 16px;justify-content: center;">

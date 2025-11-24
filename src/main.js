@@ -33,12 +33,17 @@ app.use(router)  // 在此时使用 router
 
 // 路由守卫
 router.beforeEach((to, from, next) => {
+
+    if(localStorage.getItem("token") && to.path === '/login'){
+        next('/manage')
+    }
+
     if (to.meta.requireAuth) {
-        if (store.state.user.userName) {
+        if (localStorage.getItem("token")) {
             next()
         } else {
             next({
-                path: 'login',
+                path: '/login',
                 query: { redirect: to.fullPath }
             })
         }
@@ -65,10 +70,12 @@ axios.interceptors.response.use(
     (error)=>{
         if(error.response && error.response.status === 401) {
             router.push('/login');
+            return ;
         }else if(error.response && error.response.status === 403) {
             localStorage.removeItem("token");
-            store.commit('logout');
+            //store.commit('logout');
             router.push('/login');
+            return ;
         }
         return Promise.reject(error);
     })

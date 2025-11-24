@@ -37,17 +37,21 @@ const page = ref(1);
 const pageSize = ref(10);
 
 const loadArticles = async () => {
-  const res = await axios.get("/public/get_article_list", {
-    params: {
-      page: page.value,   // 后端会自动 -1
-      size: pageSize.value
-    }
-  });
+  try {
+    const res = await axios.get("/public/get_article_list", {
+      params: {
+        page: page.value,   // 后端会自动 -1
+        size: pageSize.value,
+      }
+    });
 
-  const data = res.data;
-  articles.value = data.content;
-  total.value = data.totalElements;
-  page.value = data.number + 1;
+    const data = res.data;
+    articles.value = data.content;
+    total.value = data.totalElements;
+    page.value = data.number + 1;
+  }catch (error){
+    console.error("Get article_list fail:",error);
+  }
 };
 
 const jumpto = (id) =>{

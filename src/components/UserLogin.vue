@@ -26,7 +26,7 @@ const login = async () => {
 
     if (response.data.code === 200) {
       // 利用store的commit调用login方法更新状态
-      store.commit('login', loginForm);
+      // store.commit('login', loginForm);
       localStorage.setItem("token",response.data.token)
       console.log(store.state);
 
