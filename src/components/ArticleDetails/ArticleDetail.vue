@@ -2,11 +2,13 @@
 
 import ArticleCard from "@/components/ArticleDetails/ArticleCard.vue";
 import CommonFooterLayout from "@/components/Footer/CommonFooterLayout.vue";
+import ArticleHeader from "@/components/ArticleDetails/ArticleHeader.vue";
 </script>
 
 <template>
   <div class="ArticleDetail-Container">
     <div class ="ArticleBackgroundImg"></div>
+    <ArticleHeader></ArticleHeader>
     <CommonFooterLayout>
       <ArticleCard></ArticleCard>
     </CommonFooterLayout>

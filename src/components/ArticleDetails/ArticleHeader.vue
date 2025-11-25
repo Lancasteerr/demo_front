@@ -1,19 +1,12 @@
 <script setup>
 
 import router from "@/router";
-import store from "@/store";
 
 const goTohomepage = () =>{
   router.push('/');
 }
 const goBack = () =>{
   router.go(-1)
-}
-
-const logout = () =>{
-  localStorage.removeItem("token");
-  store.commit('logout');
-  router.push({name:'MyHome'});
 }
 
 </script>
@@ -30,9 +23,6 @@ const logout = () =>{
           <div class="function-items">
             <el-button class="to-homePage" type="text" @click="goTohomepage">首页</el-button>
             <el-button class="Manage-Article" type="text" @click="goBack">返回</el-button>
-          </div>
-          <div class="account-items">
-            <el-button class="Login-Exit" type="text" @click="logout"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAzUlEQVR4nO2WsQ0CMQwAUwAlbEDHEvCsQcEEjEHHMwKrpEUMAMzwNAwANBwySqQUT/SYfIQQV1qOL46SyMYEAD1gDZzQUwGl1DKvcAmpKGMi2Y0wNkqAwncWS3qilTSu8xcJwAIYmQBg34boBpyBSRDrAza1yHMBZkG825ZIuAPLxotq4jveYwN0NCINFhjkEAlHYJhDdMghspqj22a5DDFIeb2/5cFec31B8yyfqqrOT4oql1N8IJm6GtHhJOW4tYqJZIAUme9MQ+0A+QAO5hz9b4NdIgAAAABJRU5ErkJggg==" alt="退出登录"></el-button>
           </div>
         </div>
       </div>
@@ -62,14 +52,14 @@ const logout = () =>{
   height: 100%;
   width: 40%;
   display: flex;
-  justify-content: space-between;
+  justify-content: right;
 }
 .function-items{
   box-sizing: border-box;
   height: 100%;
   width: 85%;
   display: flex;
-  justify-content: center;
+  justify-content: right;
   align-items: center;
 }
 .account-items{

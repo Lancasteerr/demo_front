@@ -13,7 +13,7 @@ const goTohomepage = () =>{
     <el-header class="Manage-header">
       <div class="Manage-header-container">
         <div id="Manage-logo" style="width: 60%;display: flex">
-          <img src="@/assets/nikoicon.png" alt="Logo">
+          <img src="@/assets/nekoicon.png" alt="Logo">
           <div class="function-items">
             <el-button class="to-homePage" type="text" @click="goTohomepage">首页</el-button>
           </div>

@@ -15,7 +15,7 @@ const goToRegisterpage = () => {
   <el-header class="header">
     <div id="header-div">
       <div id="logo">
-        <img src="../assets/nikoicon.png" alt="Logo">
+        <img src="../assets/nekoicon.png" alt="Logo">
       </div>
         <div class="butten-container">
           <el-button class="Loginbutton" type="text" @click="goToLoginpage">登录</el-button>

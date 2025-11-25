@@ -21,7 +21,7 @@ const logout = () =>{
     <el-header class="Manage-header">
       <div class="Manage-header-container">
         <div id="Manage-logo" style="width: 60%">
-          <img src="@/assets/nikoicon.png" alt="Logo">
+          <img src="@/assets/nekoicon.png" alt="Logo">
         </div>
         <div class="Manage-header-items">
           <div class="function-items">
