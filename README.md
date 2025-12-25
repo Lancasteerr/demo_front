@@ -1,4 +1,4 @@
-# Eazy_blog
+# Easy_blog
 
 ## Project setup
 ```
