@@ -1,4 +1,4 @@
-# demo_front
+# Eazy_blog
 
 ## Project setup
 ```
